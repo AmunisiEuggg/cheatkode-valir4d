@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CHEAT KODE VALIR4D | New v1.0</title>
+    <style>
+        :root {
+            --bg: #000;
+            --panel-bg: rgba(10, 0, 0, 0.88);
+            --primary: #ff1a1a;
+            --border: rgba(255, 0, 0, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+
+        body {
+            font-family: Inter, system-ui, Arial, sans-serif;
+            background: url('https://i.gyazo.com/53d3cf741de69a17a57041affcbfece5.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 14px;
+        }
+
+        canvas.bg {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            opacity: 0.8;
+            background: #000;
+            pointer-events: none;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            box-shadow: 0 0 35px rgba(255, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 4px;
+            border-bottom: 1px dashed rgba(255, 0, 0, 0.25);
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .label small {
+            font-size: 12px;
+            color: #ff8080;
+        }
+
+        .switch {
+            position: relative;
+            width: 54px;
+            height: 28px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            inset: 0;
+            background: #220000;
+            border-radius: 999px;
+            transition: .25s;
+            box-shadow: inset 0 0 6px rgba(255, 0, 0, 0.4);
+        }
+        .slider:before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            background: #550000;
+            border-radius: 50%;
+            transition: .25s;
+        }
+        input:checked + .slider {
+            background: linear-gradient(90deg, #ff1a1a, #b30000);
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+            background: #fff;
+        }
+
+        .cta {
+            margin-top: 18px;
+            width: 100%;
+            height: 56px;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #550000, #330000);
+            color: #ffaaaa;
+            opacity: 0.5;
+            cursor: not-allowed;
+            transition: .2s;
+        }
+        .cta.enabled {
+            opacity: 1;
+            cursor: pointer;
+            background: linear-gradient(90deg, #ff0000, #990000);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        .note {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ff8080;
+        }
+
+        .footer {
+            margin-top: 14px;
+            text-align: center;
+            color: #ff1a1a;
+            font-size: 12px;
+            background: rgba(40, 0, 0, 0.8);
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+        }
+
+        #popupLoading {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+        #popupLoading.show { display: flex; }
+
+        .popup-box {
+            width: 300px;
+            padding: 20px;
+            background: rgba(40, 0, 0, 0.9);
+            border: 1px solid var(--border);
+            color: #ff4d4d;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .progress {
+            width: 100%;
+            height: 14px;
+            background: #1b0000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff8800);
+            transition: width .1s linear;
+        }
+        .progress-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffb3b3;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="bg"></canvas>
+
+    <div class="wrap">
+        <div class="title">CHEAT KODE x VALIR4D</div>
+
+        <div class="item">
+            <div class="label">💀 Auto Pecah <small>(Pragmatic)</small></div>
+            <label class="switch"><input type="radio" name="booster" data-url="https://t.ly/aplikasivalir4d"><span class="slider"></span></label>
+        </div>
+
+        <div class="item">
+            <div class="label">🔥 X100 X250 X500 <small>(Pragmatic)</small></div>
+            <label class="switch"><input type="radio" name="booster" data-url="https://t.ly/aplikasivalir4d"><span class="slider"></span></label>
+        </div>
+
+        <div class="item">
+            <div class="label">⚡ Scatter Rage <small>(PG Soft)</small></div>
+            <label class="switch"><input type="radio" name="booster" data-url="https://t.ly/aplikasivalir4d"><span class="slider"></span></label>
+        </div>
+
+        <div class="item">
+            <div class="label">🩸 Full Pecahan <small>(PG Soft)</small></div>
+            <label class="switch"><input type="radio" name="booster" data-url="https://t.ly/aplikasivalir4d"><span class="slider"></span></label>
+        </div>
+
+        <div class="note">⬇️ <strong style="color:#ff1a1a">AKTIFKAN UNTUK BOOST</strong> ⬇️</div>
+        <button class="cta" id="btnAktifkan" disabled>Aktifkan Booster!</button>
+
+        <div class="note">⚠️ SEMOGA MENINGKATKAN WINRATE ANDA! ⚠️</div>
+        <div class="note">⚠️ SALAM MAXWIN! ⚠️</div>
+    </div>
+
+    <div class="footer">© 2014 - 2025 VALIR4D • ALL RIGHTS RESERVED</div>
+
+    <div id="popupLoading">
+        <div class="popup-box">
+            <div class="popup-title">Sedang Mengaktifkan…</div>
+            <div class="popup-desc" id="popupDesc">Mohon tunggu...</div>
+            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+            <div class="progress-text" id="progressText">0%</div>
+        </div>
+    </div>
+
+    <script>
+        const radios = document.querySelectorAll('input[name="booster"]');
+        const btn = document.getElementById('btnAktifkan');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            radios.forEach(r => r.checked = true);
+            btn.classList.add('enabled');
+            btn.disabled = false;
+        });
+
+        btn.addEventListener('click', () => {
+            const selected = document.querySelector('input[name="booster"]:checked');
+            if (!selected) return;
+
+            const popup = document.getElementById('popupLoading');
+            const bar = document.getElementById('progressBar');
+            const txt = document.getElementById('progressText');
+            popup.classList.add('show');
+
+            let progress = 0;
+            const timer = setInterval(() => {
+                progress += 2;
+                if (progress > 100) progress = 100;
+                bar.style.width = progress + '%';
+                txt.textContent = progress + '%';
+                if (progress === 100) {
+                    clearInterval(timer);
+                    location.href = selected.dataset.url;
+                }
+            }, 15);
+        });
+    </script>
+</body>
+</html>
